@@ -1,3 +1,4 @@
+source("renv/activate.R")
 if (file.exists("~/.Rprofile")) source("~/.Rprofile")
 
 if(!requireNamespace("pacman", quietly = TRUE)) {
