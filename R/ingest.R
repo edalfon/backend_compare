@@ -70,21 +70,20 @@ plan_ingest <- function() { tarchetypes::tar_plan(
   # (only once though) to see if the new version makes a difference
   A_ingest_duck031 = "",
   tarchetypes::tar_map(
-    values = list(src_file = c(
-      tiny = "/backend/tiny_data.txt",
-      small = "/backend/small_data.txt",
-      mid = "/backend/mid_data.txt",
-      year = "/backend/year_data.csv.gz"
-    )),
+    values = list(
+      src_file = c(
+        tiny = "/backend/tiny_data.txt",
+        small = "/backend/small_data.txt",
+        mid = "/backend/mid_data.txt",
+        year = "/backend/year_data.csv.gz",
+        NULL
+      )
+    ),
     
-    # having found: 
-    # 1. duckdb getting slow ingesting larguish data
-    # 2. duckdb also slowing down in querying columns stored as timestamp
-    # I wonder if timestamp columns might be the underlying cause of 1. above
-    # let's benchmark ingesting data, but reading the timestamp columns as text
     tar_target(ingest_duck031, {
       A_ingest_duck031
-      ingest_duckdb(src_file)
+      tbl_name <- tools::file_path_sans_ext(basename(src_file), TRUE)
+      ingest_duckdb(src_file, duckdb_con, tbl_name)
     })
   ),
   
