@@ -305,9 +305,15 @@
     },
     "efun": {
       "Package": "efun",
-      "Version": "0.0.0.9000",
-      "Source": "unknown",
-      "Hash": "8debfc941f19a60441fcfb025ad598d7"
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "efun",
+      "RemoteUsername": "edalfon",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "8f3ac7b828bdb3736d282ebdd55ece378260fe80",
+      "Hash": "222c23057ea22458d8e11a1be2628e6a"
     },
     "ellipsis": {
       "Package": "ellipsis",
