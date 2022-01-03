@@ -81,10 +81,10 @@
     },
     "arrow": {
       "Package": "arrow",
-      "Version": "6.0.0.2",
+      "Version": "6.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "49d65e164690a10399c73122af1ba14e"
+      "Hash": "da21509f51b9ad1386ca293e1042abf5"
     },
     "askpass": {
       "Package": "askpass",
@@ -221,10 +221,10 @@
     },
     "cpp11": {
       "Package": "cpp11",
-      "Version": "0.4.1",
+      "Version": "0.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "70976176dfd7f179f212783aab2547b1"
+      "Hash": "fa53ce256cd280f468c080a58ea5ba8c"
     },
     "crayon": {
       "Package": "crayon",
@@ -625,10 +625,10 @@
     },
     "odbc": {
       "Package": "odbc",
-      "Version": "1.3.2",
+      "Version": "1.3.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "efa957aa3ffc6093b8fbe33ff6a0f91c"
+      "Hash": "3f9efc29c48dca3aebf00b61a472d543"
     },
     "openssl": {
       "Package": "openssl",
