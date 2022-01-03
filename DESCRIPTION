@@ -1,0 +1,37 @@
+Package: backend_compare
+Title: A {targets} pipeline to play around with {arrow} and {duckdb}
+Version: 0.0.0.9000
+Authors@R: 
+    person("Eduardo", "Alfonso-Sierra", , "edalfon@gmail.com", 
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-6430-5135"))
+Description: Not really a package. Just a bunch of simple data wrangling steps
+             to play around with {arrow} and {duckdb}, and compare it with 
+             the same thing in PostgreSQL
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    targets,
+    tarchetypes,
+    visNetwork,
+    duckdb,
+    arrow,
+    conflicted,
+    dplyr,
+    ggplot2,
+    magrittr,
+    pacman,
+    rlang,
+    tidyr,
+    utils,
+    DBI,
+    odbc,
+    fs,
+    bench,
+    efun,
+    glue,
+    here,
+    purrr
