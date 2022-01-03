@@ -298,10 +298,10 @@
     },
     "duckdb": {
       "Package": "duckdb",
-      "Version": "0.3.0",
+      "Version": "0.3.1-1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "725744f0118305163151c41350436909"
+      "Hash": "209719c79ec850e02212a54c23995b9d"
     },
     "efun": {
       "Package": "efun",
