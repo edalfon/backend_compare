@@ -139,7 +139,6 @@ B_agg_count_pgduck|stem|12a1ae7a5592b5bf|06508ca6309d93aa|4ad95b186a10df20|-1933
 D_enums|stem|12a1ae7a5592b5bf|06508ca6309d93aa|4ad95b186a10df20|1157252385||t18995.4835185185s|8af1149d62b33a4b|54|rds|vector|||0.33||
 A_ingest|stem|12a1ae7a5592b5bf|06508ca6309d93aa|4ad95b186a10df20|1980428118||t18993.8548223888s|8af1149d62b33a4b|54|rds|vector|||12.89||
 siu|stem|02ccded9c9440bad|b2bad91902aa692a|4ad95b186a10df20|1077313686||t18993.695427202s|cdb4c40b29a8ee3b|32569|rds|vector|||12.6||
-ingest_duck031_.backend.year_data.csv.gz|stem||fbd75ccda0e2ea70|db23ea265e5a34cd|-947183678||t18995.9608013253s||0|rds|vector|||0.45||error in evaluating the argument conn in selecting a method for function dbExecute argument duckdb_con is missing, with no default
 ingest_enum_tar_D..small_data.txt|stem|2aed2df35ac92472|e32847a292516c30|4455876ef8e0551a|692409964||t18995.4461921296s|231dfa2cd0115b89|745|rds|vector|||149.16||
 ingest_enum_tar_D..mid_data.txt|stem|69b236d361a7e13e|a90207853798a0c9|4455876ef8e0551a|6382293||t18995.4616087963s|a4b8d6128c6ac430|738|rds|vector|||1174.24||
 ingest_enum_tar_D..tiny_data.txt|stem|20eb5095bb4b9c0f|8c6587c8d2ebdcff|4455876ef8e0551a|524088708||t18995.4836689815s|977dd89add66967c|750|rds|vector|||12.81||
@@ -162,6 +161,8 @@ bm_cdtc_mid|stem|4d09ab367390248b|deda236046ddc03e|44a3fa5e32aca024|-1686564215|
 bm_cdtc_tiny|stem|221cac0b3460dfcf|f3046ccd699aa573|44a3fa5e32aca024|-586170182||t18993.7870317361s|29ef6e69faafba33|3103|rds|vector|||25.62||
 bm_cdtc_small|stem|6ce0be186c1fb6af|532e72358c673962|44a3fa5e32aca024|1743957037||t18993.7877340282s|8a2fd3bcecd9b76a|1866|rds|vector|||60.66||
 bm_cdtc_year|stem|bfeeecf1778f9ec7|7f6fe461ad1d06b7|44a3fa5e32aca024|130033946||t18993.8390578833s|a3316fae39b66897|1940|rds|vector|||4121.9||
+ingest_duck031_.backend.small_data.txt|stem|3604d9d72d944160|6397f34ae1a6124d|3eb7c517a48bbbb9|-900502102||t18995.9843510693s|6a7d693e2118d888|64|rds|vector|||69.53||
+ingest_duck031_.backend.tiny_data.txt|stem|a1e472c6eaeda651|4892e34b055df935|3eb7c517a48bbbb9|1736213766||t18995.984464206s|996925e1ed10e0be|63|rds|vector|||9.74||
 ingest_arrow|function|a2c8330cd2f868c3||||||||||||||
 connect_duckdb|function|3048c7ea7d1d2aaf||||||||||||||
 count_distinct_sql|function|0ae7c3735ec4b34b||||||||||||||
@@ -196,6 +197,6 @@ plan_count_distinct|function|2615cc2042f5f832||||||||||||||
 bench_ingest|function|5e868d6bbd96a310||||||||||||||
 plan_timestamp|function|bf1508c8ef443613||||||||||||||
 plan_agg_count|function|ca30adfa27895650||||||||||||||
-plan_ingest|function|b68f78d5810ec145||||||||||||||
-ingest_duck031_.backend.small_data.txt|stem|3604d9d72d944160|6397f34ae1a6124d|3eb7c517a48bbbb9|-900502102||t18995.9843510693s|6a7d693e2118d888|64|rds|vector|||69.53||
-ingest_duck031_.backend.tiny_data.txt|stem|a1e472c6eaeda651|4892e34b055df935|3eb7c517a48bbbb9|1736213766||t18995.984464206s|996925e1ed10e0be|63|rds|vector|||9.74||
+plan_ingest|function|c640908991694563||||||||||||||
+ingest_duck031_.backend.year_data.csv.gz|stem|a3b34df5723480dd|77e00e6afc1e8f8c|3eb7c517a48bbbb9|-947183678||t18996.2318359846s|996925e1ed10e0be|63|rds|vector|||19899.9||
+ingest_duck031_.backend.mid_data.txt|stem|30755ce88791d340|38ad6005da21001e|3eb7c517a48bbbb9|1283850066||t18996.2579140909s|013d2ea9b87d37af|62|rds|vector|||2252.8||
