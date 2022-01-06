@@ -10,14 +10,11 @@ tar_plan(
 
   tar_target(siu, utils::sessionInfo()),
 
-
   plan_ingest(),
   plan_agg_count(),
-  
   plan_count_distinct(),
   
   plan_timestamp(),
-  
   plan_enums(),
   
 
