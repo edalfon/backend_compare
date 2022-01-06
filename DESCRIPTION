@@ -35,3 +35,5 @@ Imports:
     glue,
     here,
     purrr
+URL: https://github.com/edalfon/backend_compare
+BugReports: https://github.com/edalfon/backend_compare/issues
