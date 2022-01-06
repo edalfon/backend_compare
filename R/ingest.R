@@ -17,16 +17,6 @@ plan_ingest <- function() { tarchetypes::tar_plan(
     tar_target(bench_ingest_tar, cue = tar_cue("never"), {
       A_ingest # just to group them together in tar_visnetwork 
       bench_ingest(src_file, duckdb_con, pg_con)
-    }),
-    
-    # having found: 
-    # 1. duckdb getting slow ingesting larguish data
-    # 2. duckdb also slowing down in querying columns stored as timestamp
-    # I wonder if timestamp columns might be the underlying cause of 1. above
-    # let's benchmark ingesting data, but reading the timestamp columns as text
-    tar_target(bench_ingest_duckdb_date_tar, cue = tar_cue("never"), {
-      A_ingest_duck
-      bench_ingest_duckdb_date(src_file)
     })
   ),
   
@@ -65,6 +55,28 @@ plan_ingest <- function() { tarchetypes::tar_plan(
                  arrow_path = "/backend/arrow_year_data")
   }),
   
+  
+  
+  
+  # having found: 
+  # 1. duckdb getting slow ingesting larguish data
+  # 2. duckdb also slowing down in querying columns stored as timestamp
+  # I wonder if timestamp columns might be the underlying cause of 1. above
+  # let's benchmark ingesting data, but reading the timestamp columns as text
+  tarchetypes::tar_map(
+    values = list(src_file = c(
+      tiny = "/backend/tiny_data.txt",
+      small = "/backend/small_data.txt",
+      mid = "/backend/mid_data.txt"
+    )),
+    
+    tar_target(bench_ingest_duckdb_date_tar, cue = tar_cue("never"), {
+      A_ingest_duck
+      bench_ingest_duckdb_date(src_file)
+    })
+  ),
+  
+  
   # duck 031 was already available, and include changes that might be relevant
   # so I'll just try with this new version ingesting the same data 
   # (only once though) to see if the new version makes a difference
@@ -91,6 +103,9 @@ plan_ingest <- function() { tarchetypes::tar_plan(
   
 
 )}
+
+
+
 
 bench_ingest_duckdb_date <- function (src_test) {
   

@@ -29,8 +29,6 @@ plan_agg_count <- function() { tarchetypes::tar_plan(
   ),
   
   
-  
-
   tar_map(
     values = list(colname = c("seq", "product", "sex", "code", "reg_type", 
                               "id_num", "sdate")),
@@ -44,8 +42,6 @@ plan_agg_count <- function() { tarchetypes::tar_plan(
     )
   ),
  
-
-  
   
 )}
 
@@ -150,40 +146,17 @@ bench_agg_count_pgduck <- function(duckdb_con, pg_con, tbl_test, colname) {
   bm <- bench::press(
     collect_data = c(TRUE, FALSE), {
       bench::mark(
-        duckdb_dplyr = agg_count(tbl(duckdb_con, tbl_test), colname, collect_data),
+        duckdb_dplyr = agg_count(tbl(duckdb_con, tbl_test), colname, 
+                                 collect_data),
         pg_dplyr = agg_count(tbl(pg_con, tbl_test), colname, collect_data),
         duckdb_sql = agg_count_sql(duckdb_con, tbl_test, colname, collect_data),
         pg_sql = agg_count_sql(pg_con, tbl_test, colname, collect_data),
         min_iterations = 10,
         check = FALSE,
         memory = FALSE
-      )}
+      )
+    }
   )
   
   bm
-}
-
-
-
-bench_count_distinct <- function(table_name = "tiny_data", 
-                                 cols = c("firm", "product")) {
-  
-  bench::mark(
-    pg = count_distinct_sql(pg_con, table_name, cols),
-    duckdb = count_distinct_sql(duckdb_con, table_name, cols),
-    check = FALSE,
-    min_iterations = 10
-  ) 
-}
-
-count_distinct_sql <- function(con, 
-                               table_name = "tiny_data", 
-                               cols = c("firm", "product")) {
-  
-  sql_query <- glue::glue_sql(.con = con, "
-    SELECT COUNT(DISTINCT({`cols`*}))
-    FROM {`table_name`}
-    ;
-  ")
-  DBI::dbGetQuery(con, sql_query)
 }

@@ -37,7 +37,6 @@ plan_enums <- function() { tar_plan(
 )}
 
 
-
 ingest_clean_slate <- function(src_file = "/backend/tiny_data.txt") {
   
   tictoc::tic("Clean slate")
@@ -264,20 +263,18 @@ ingest_enum <- function(src_file = "/backend/tiny_data.txt") {
   
   
   tictoc::tic("Describing again")
-  desc_enum <- DBI::dbGetQuery(duckdb_tmp, "DESCRIBE test_data;")
+  desc_enum <- DBI::dbGetQuery(duckdb_tmp, "  
+    DESCRIBE test_data;
+  ")
   tictoc::toc()
   
   
   tictoc::tic("Database size again")
-  size_enum <- DBI::dbGetQuery(duckdb_tmp, "PRAGMA database_size;")
+  size_enum <- DBI::dbGetQuery(duckdb_tmp, "  
+    PRAGMA database_size;
+  ")
   tictoc::toc()
   
   list(desc_enum, size_enum, rows_enum, ingest_time_enum)
 }
-
-
-
-
-
-
 

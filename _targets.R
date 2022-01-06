@@ -3,7 +3,6 @@ conflicted::conflict_prefer("filter", "dplyr", quiet = TRUE)
 conflicted::conflict_prefer("select", "dplyr", quiet = TRUE)
 conflicted::conflict_prefer("expand", "tidyr", quiet = TRUE)
 
-
 base_dir <- "/backend"
 
 tar_plan(
@@ -29,19 +28,4 @@ tar_plan(
         DBI::dbDisconnect(pg_con)
       })
     }
-  ) |> 
-  tar_hook_inner(
-    hook = {
-      arrow_con <- rlang::eval_tidy(.x)
-      arrow_con
-    },
-    names_wrap = starts_with("arrow_con")
-  ) |>
-  tar_hook_inner(
-    hook = {
-      parquet_con <- rlang::eval_tidy(.x)
-      parquet_con
-    },
-    names_wrap = starts_with("parquet_con")
-  ) |>
-  identity()
+  ) 
