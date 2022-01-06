@@ -10,3 +10,4 @@
 ^report/chapter2\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
