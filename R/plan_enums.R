@@ -9,6 +9,10 @@ plan_enums <- function() { tar_plan(
       "D:/small_data.txt",
       "D:/mid_data.txt",
       "D:/year_data.txt",
+      "/backend/tiny_data.txt",
+      "/backend/small_data.txt",
+      "/backend/mid_data.txt",
+      "/backend/year_data.csv.gz",
       NULL
     )),
     
