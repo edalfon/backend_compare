@@ -97,8 +97,36 @@ plan_ingest <- function() { tarchetypes::tar_plan(
       tbl_name <- tools::file_path_sans_ext(basename(src_file), TRUE)
       ingest_duckdb(src_file, duckdb_con, tbl_name)
     })
+    
   ),
-  
+
+  # let's see if I can find any clue in DuckDB's profiling output
+  A_ingest_duck031_notsopoor = "",
+  tarchetypes::tar_map(
+    values = list(
+      src_file = c(
+        tiny = "D:/tiny_data.txt",
+        small = "D:/small_data.txt",
+        mid = "D:/mid_data.txt",
+        year = "D:/year_data.txt",
+        "/backend/tiny_data.txt",
+        "/backend/small_data.txt",
+        "/backend/mid_data.txt",
+        "/backend/year_data.csv.gz",
+        NULL
+      )
+    ),
+    
+    tar_target(ingest_duck031_notsopoor, {
+      A_ingest_duck031_notsopoor
+      tbl_name <- tools::file_path_sans_ext(basename(src_file), TRUE)
+      DBI::dbExecute(duckdb_con, "PRAGMA enable_profiling;")
+      DBI::dbExecute(duckdb_con, "PRAGMA profile_output='/backend/p.json';")
+      ingest_duckdb(src_file, duckdb_con, tbl_name)
+      fs::file_copy("/backend/p.json", efun::timestamp_it("/backend/p.json"))
+    })
+    
+  ),
   
   
 
